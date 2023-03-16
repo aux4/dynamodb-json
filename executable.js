@@ -20,6 +20,17 @@ const args = process.argv.splice(2);
 
   if (args[0] === "marshall") {
     printJson(marshall(input));
+    return;
+  }
+
+  if (input.Item) {
+    input = input.Item;
+  } else if (input.Items) {
+    input = input.Items;
+  }
+
+  if (Array.isArray(input)) {
+    printJson(input.map(item => unmarshall(item)));
   } else {
     printJson(unmarshall(input));
   }
@@ -30,7 +41,7 @@ function printJson(object) {
 }
 
 function readStdIn() {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     let inputString = "";
 
     stdin = process.openStdin();
