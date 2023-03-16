@@ -1,0 +1,31 @@
+{
+  "name": "dynamodb-json",
+  "version": "0.0.1",
+  "description": "Marshall/Unmarshall DynamoDB JSON using CLI",
+  "main": "executable.js",
+  "preferGlobal": true,
+  "bin": {
+    "dynamodb-json": "executable.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aux4/dynamodb-json.git"
+  },
+  "keywords": [
+    "dynamodb",
+    "json",
+    "cli"
+  ],
+  "author": "Aux4",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/aux4/dynamodb-json/issues"
+  },
+  "homepage": "https://github.com/aux4/dynamodb-json#readme",
+  "dependencies": {
+    "@aws-sdk/util-dynamodb": "^3.293.0"
+  }
+}
