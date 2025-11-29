@@ -1,0 +1,74 @@
+{
+  "scope": "community",
+  "name": "aws-dynamodb-marshaller",
+  "description": "Commands to marshal and unmarshal JSON to/from AWS DynamoDB format",
+  "version": "0.0.1",
+  "system": [
+    [
+      "test:node --version",
+      "brew:node",
+      "apt:nodejs",
+      "linux:nodejs"
+    ]
+  ],
+  "tags": [
+    "aws",
+    "dynamodb",
+    "json",
+    "marshal",
+    "unmarshal"
+  ],
+  "profiles": [
+    {
+      "name": "main",
+      "commands": [
+        {
+          "name": "aws",
+          "execute": [
+            "profile:aws"
+          ],
+          "help": {
+            "text": "Amazon Web Services"
+          }
+        }
+      ]
+    },
+    {
+      "name": "aws",
+      "commands": [
+        {
+          "name": "dynamodb",
+          "execute": [
+            "profile:aws:dynamodb"
+          ],
+          "help": {
+            "text": "AWS DynamoDB"
+          }
+        }
+      ]
+    },
+    {
+      "name": "aws:dynamodb",
+      "commands": [
+        {
+          "name": "marshal",
+          "execute": [
+            "stdin:node ${packageDir}/lib/community-dynamodb-marshaller.js marshall"
+          ],
+          "help": {
+            "text": "Marshal JSON to DynamoDB format"
+          }
+        },
+        {
+          "name": "unmarshal",
+          "execute": [
+            "stdin:node ${packageDir}/lib/community-dynamodb-marshaller.js"
+          ],
+          "help": {
+            "text": "Unmarshal DynamoDB format to JSON"
+          }
+        }
+      ]
+    }
+  ]
+}

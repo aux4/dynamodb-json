@@ -2,7 +2,7 @@
 
 process.stdin.setEncoding("utf8");
 
-const { marshall, unmarshall } = require("@aws-sdk/util-dynamodb");
+import { marshall, unmarshall } from "@aws-sdk/util-dynamodb";
 
 const args = process.argv.splice(2);
 
@@ -44,7 +44,7 @@ function readStdIn() {
   return new Promise(resolve => {
     let inputString = "";
 
-    stdin = process.openStdin();
+    const stdin = process.openStdin();
 
     stdin.on("data", function (data) {
       inputString += data;

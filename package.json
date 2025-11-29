@@ -2,6 +2,7 @@
   "name": "dynamodb-json",
   "version": "0.0.3",
   "description": "Marshall/Unmarshall DynamoDB JSON using CLI",
+  "type": "module",
   "main": "executable.js",
   "preferGlobal": true,
   "bin": {
@@ -26,6 +27,12 @@
   },
   "homepage": "https://github.com/aux4/dynamodb-json#readme",
   "dependencies": {
-    "@aws-sdk/util-dynamodb": "^3.293.0"
+    "@aws-sdk/util-dynamodb": "^3.940.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^29.0.0",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "rollup": "^4.53.3"
   }
 }
