@@ -9,7 +9,7 @@ The commands fit into the aux4 ecosystem as a lightweight utility package that c
 ## Installation
 
 ```bash
-aux4 aux4 pkger install community/aws-dynamodb-marshaller
+aux4 install community/aws-dynamodb-marshaller
 ```
 
 ## System Dependencies
@@ -58,32 +58,55 @@ For command-specific help see [`aux4 aws dynamodb unmarshal`](./commands/aws/dyn
 
 ## Examples
 
-### Marshal a simple object
+### Scan a DynamoDB table
 
-This example shows a minimal JSON object and how to marshal it into DynamoDB format.
-
-input.json:
-```json
-{"name": "John", "age": 30}
-```
-
-Run the marshal command by piping the file into the command:
+Scan all items from a table and convert the response to plain JSON:
 
 ```bash
-cat input.json | aux4 aws dynamodb marshal
+aws dynamodb scan --table-name users | aux4 aws dynamodb unmarshal
 ```
 
-The command converts the string and number into DynamoDB attribute types and outputs:
+### Query a DynamoDB table
 
-```json
-{
-  "name": {
-    "S": "John"
-  },
-  "age": {
-    "N": "30"
-  }
-}
+Query items by partition key and unmarshal the results:
+
+```bash
+aws dynamodb query \
+  --table-name orders \
+  --key-condition-expression "userId = :uid" \
+  --expression-attribute-values '{":uid": {"S": "user123"}}' \
+  | aux4 aws dynamodb unmarshal
+```
+
+### Get a single item
+
+Retrieve a specific item and convert it to plain JSON:
+
+```bash
+aws dynamodb get-item \
+  --table-name users \
+  --key '{"id": {"S": "user123"}}' \
+  | aux4 aws dynamodb unmarshal
+```
+
+### Put an item into DynamoDB
+
+Marshal a JSON object and use it with put-item:
+
+```bash
+echo '{"id": "user123", "name": "John Doe", "age": 30}' \
+  | aux4 aws dynamodb marshal > item.json
+
+aws dynamodb put-item --table-name users --item file://item.json
+```
+
+### Marshal from a JSON file
+
+Convert a JSON file to DynamoDB format:
+
+```bash
+cat user.json | aux4 aws dynamodb marshal > dynamodb-item.json
+aws dynamodb put-item --table-name users --item file://dynamodb-item.json
 ```
 
 ### Marshal an object with a list

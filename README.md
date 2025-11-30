@@ -1,24 +1,5 @@
-# dynamodb-json
-Marshall/Unmarshall DynamoDB JSON using CLI
+# community/aws-dynamodb-marshaller
 
-## Install
+[View README](/package/README.md)
 
-```
-npm install --global dynamodb-json
-```
-
-## Usage
-
-### Unmarshall
-Converts DynamoDB JSON to regular JSON
-
-```
-aws dynamodb scan --table-name table | dynamodb-json unmarshall
-```
-
-### Marshall
-Converts regular JSON to DynamoDB JSON
-
-```
-cat regular.json | dynamodb-json marshall > output.json
-```
+[aux4 hub](https://hub.aux4.io/r/public/packages/community/aws-dynamodb-marshaller)
