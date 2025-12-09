@@ -7,7 +7,7 @@
 ```
 
 ```execute
-cat input.json | aux4 aws dynamodb unmarshal
+cat input.json | aux4 aws dynamodb unmarshal | jq .
 ```
 
 ```expect
@@ -24,7 +24,7 @@ cat input.json | aux4 aws dynamodb unmarshal
 ```
 
 ```execute
-cat input.json | aux4 aws dynamodb unmarshal
+cat input.json | aux4 aws dynamodb unmarshal | jq .
 ```
 
 ```expect
@@ -41,7 +41,7 @@ cat input.json | aux4 aws dynamodb unmarshal
 ```
 
 ```execute
-cat input.json | aux4 aws dynamodb unmarshal
+cat input.json | aux4 aws dynamodb unmarshal | jq .
 ```
 
 ```expect
@@ -58,7 +58,7 @@ cat input.json | aux4 aws dynamodb unmarshal
 ```
 
 ```execute
-cat input.json | aux4 aws dynamodb unmarshal
+cat input.json | aux4 aws dynamodb unmarshal | jq .
 ```
 
 ```expect
@@ -78,7 +78,7 @@ cat input.json | aux4 aws dynamodb unmarshal
 ```
 
 ```execute
-cat input.json | aux4 aws dynamodb unmarshal
+cat input.json | aux4 aws dynamodb unmarshal | jq .
 ```
 
 ```expect
@@ -97,7 +97,7 @@ cat input.json | aux4 aws dynamodb unmarshal
 ```
 
 ```execute
-cat input.json | aux4 aws dynamodb unmarshal
+cat input.json | aux4 aws dynamodb unmarshal | jq .
 ```
 
 ```expect
@@ -114,7 +114,7 @@ cat input.json | aux4 aws dynamodb unmarshal
 ```
 
 ```execute
-cat input.json | aux4 aws dynamodb unmarshal
+cat input.json | aux4 aws dynamodb unmarshal | jq .
 ```
 
 ```expect

@@ -37,7 +37,7 @@ const args = process.argv.splice(2);
 })();
 
 function printJson(object) {
-  console.log(JSON.stringify(object, null, 2));
+  console.log(JSON.stringify(object));
 }
 
 function readStdIn() {
