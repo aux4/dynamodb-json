@@ -2,7 +2,7 @@
   "scope": "community",
   "name": "aws-dynamodb-marshaller",
   "description": "Commands to marshal and unmarshal JSON to/from AWS DynamoDB format",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "git": "https://github.com/aux4/aws-dynamodb-marshaller",
   "system": [
     [
